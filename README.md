@@ -28,4 +28,4 @@ This base is intended to be as homogeneous as possible for any project, yet, the
 + webpack.common.js
   - title property in webpack.common.js plugins -> FaviconsWebpackPlugin
 
-+ It is reccomendable to run `npm run dev` & `npm run test` in parallel.
+#### It is reccomendable to run `npm run dev` & `npm run test` in parallel since it will play nice together with E2E testing.
