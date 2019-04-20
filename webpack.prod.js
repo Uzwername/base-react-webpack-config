@@ -5,8 +5,9 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = merge(common, {
     mode: "production",
+    //Used primarily to delete comments from prod build
     optimization: {
-        minimizer: [
+        minimizer: [ 
             new UglifyJsPlugin({
                 uglifyOptions: {
                   output: {
