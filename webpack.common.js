@@ -23,8 +23,6 @@ imagemin(["assets/images/common/*.{jpg,png}"], "assets/images/webp", {
     use: [
         imageminWebp({quality: 50})
     ]
-}).then(() => {
-    console.log("Images optimized");
 }).catch( err => console.log(`Image optimization failed due to: ${err}`) );
 
 module.exports = {
