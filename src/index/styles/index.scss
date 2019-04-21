@@ -1,9 +1,51 @@
-%noSpace {
+%fullSizeNoSpace {
+	width: 100%;
+	height: 100%;
 	padding: 0;
 	margin: 0;
 	border: 0;
+	font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
 }
 
-html, body {
-	@extend %noSpace;
+html, body, :global(#app), :global(#jsDisabled) {
+	@extend %fullSizeNoSpace;
+}
+
+/*
+Delete from here + ":global(#jsDisabled)"
+just above if error box is not needed
+*/
+
+%centeredFlex {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+%inlineBlock {
+	display: inline-block;
+	padding: 0 25px;
+}
+
+:global(#jsDisabled) {
+	@extend %centeredFlex;
+
+	:global(.jsd_infoBox) {
+		background-color: #CCD6DC;
+		border-radius: 25px;
+		@extend %centeredFlex;
+		flex-wrap: wrap;
+
+		:global(.jsd_icon) {
+			@extend %inlineBlock;
+			font-size: 500%;
+			margin: 0;
+			top: 50%;
+		}
+
+		:global(.jsd_textWrapper) {
+			@extend %inlineBlock;
+			max-width: 250px;
+		}
+	}
 }
