@@ -10,9 +10,16 @@ module.exports = merge(common, {
         minimizer: [ 
             new UglifyJsPlugin({
                 uglifyOptions: {
-                  output: {
-                    comments: false
-                  }
+                    output: {
+                        comments: false
+                    },
+                    compress: {
+                        // remove warnings
+                        warnings: false,
+
+                        // Drop console statements
+                        drop_console: true
+                    }
                 }
             })
         ]
