@@ -40,9 +40,9 @@ Warnings about unknown attribute :global() in scss are preserved in order to sho
 
 # Additional Info
 
-#### It is reccomendable to run `npm run dev` & `npm run test` in parallel since it will play nice together with E2E testing.
+### It is reccomendable to run `npm run dev` & `npm run test` in parallel since it will play nice together with E2E testing.
 
-#### In src -> index -> markup -> index_template.dev.html there might be found content inside the `<div id="app">`.
+### In src -> index -> markup -> index_template.dev.html there might be found content inside the `<div id="app">`.
 
   The reason for that is that since this set-up is intended for client-side rendering, it might happen that JS in user's browser is disabled. Hence, nothing will be rendered.
 
