@@ -8,7 +8,7 @@ This base is intended to be as homogeneous as possible for any project, yet, the
 
 + Git Setup
 
-  - Set-up includes ".gitignore" file & an empty .git folder (created with `git init`). One should set the repo as needed or remove .git.
+  - Set-up includes ".gitignore" file but one should run `git init` in order to create at least empty .git. Without .git ESLint might not work for an unknown reason.
 
 + package.json
   - You obviously need to run `npm install`. Preferably, before that, to also might run `ncu` if you have corresponding package installed globally.
@@ -34,7 +34,7 @@ According to corresponding repos, both are insignificant & will be fixed soon.
 
 Also the default favicon is not well-optimized and hence, shows a warning on compile which is assumed to be ok since it most probably be replaced (or well, optimized).
 
-Also, initially one or more (depending on environment) test in E2E fail & ESlint shows 2 warnings on compile which is left as-is for guidance & demonstration.
+Also, initially one or more (depending on environment) test in E2E fail & ESLint shows 2 warnings on compile which is left as-is for guidance & demonstration.
 
 # Additional Info
 
