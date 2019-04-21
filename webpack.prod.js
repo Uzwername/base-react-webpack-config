@@ -25,7 +25,7 @@ module.exports = merge(common, {
                 },
                 "viewport": "width=device-width, initial-scale=1, shrink-to-fit=no"
             },
-            template: "./src/index/markup/index_template.prod.html"
+            template: "src/index/markup/index_template.prod.html"
         })
     ]
 });

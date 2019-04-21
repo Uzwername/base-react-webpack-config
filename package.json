@@ -7,7 +7,8 @@
   "scripts": {
     "dev": "webpack-dev-server --config webpack.dev.js",
     "test": "jest --watch",
-    "build": "webpack --config webpack.prod.js"
+    "build": "webpack --config webpack.prod.js",
+    "profile": "webpack --profile --config='webpack.prod.js' --json > buildStats/webpack-stats.json"
   },
   "repository": {
     "type": "git",

@@ -25,14 +25,14 @@ imagemin(["assets/images/common/*.{jpg,png}"], "assets/images/webp", {
     ]
 }).then(() => {
     console.log("Images optimized");
-});
+}).catch( err => console.log(`Image optimization failed due to: ${err}`) );
 
 module.exports = {
     entry: {
-        main: `./src/index/scripts/index.js`
+        main: "./src/index/scripts/index.js"
     },
 	output: {
-		filename: `main.js`,
+		filename: "main.js",
 		path: path.resolve(__dirname, `dist`)
 	},
     resolve: {
@@ -53,10 +53,10 @@ module.exports = {
                 use: [
                     MiniCssExtractPlugin.loader,
                     { //Enables class/id minimization & CSS modules
-                        loader: `css-loader`,
+                        loader: "css-loader",
                         options: {
                             modules: true,
-                            localIdentName: `[sha1:hash:hex:4]`
+                            localIdentName: "[sha1:hash:hex:4]"
                         }
                     },
                     {
