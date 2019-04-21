@@ -1,5 +1,4 @@
-React + Webpack base setup
-======
+# React + Webpack base setup
 
 This is just a base config of the development environment. It is intended to be used for building React projects that use webpack as the build tool.
 
@@ -28,4 +27,15 @@ This base is intended to be as homogeneous as possible for any project, yet, the
 + webpack.common.js
   - title property in webpack.common.js plugins -> FaviconsWebpackPlugin
 
-#### It is reccomendable to run `npm run dev` & `npm run test` in parallel since it will play nice together with E2E testing.
+# Known issues
+There are 2 warnings that appear on each compile one from Stylelint & another one from eslint-plugin-react.
+
+According to corresponding repos, both are insignificant & will be fixed soon.
+
+Also the default favicon is not well-optimized and hence, shows a warning on compile which is assumed to be ok since it most probably be replaced (or well, optimized).
+
+Also, initially one or more (depending on environment) test in E2E fail & ESlint shows 2 warnings on compile which is left as-is for guidance & demonstration.
+
+# Additional Info
+
+It is reccomendable to run `npm run dev` & `npm run test` in parallel since it will play nice together with E2E testing.
