@@ -50,4 +50,4 @@ Warnings about unknown attribute :global() in scss are preserved in order to sho
 
   However, since it is not needed in 100% of cases (for instance, there's no such a probability if you develop a Chrome plug-in), it is left only in dev version of the HTML template. The dev version doesn't contain it. So, one should customize this content as needed if necessary **and then copy the content to index_template.prod.html. Otherwise, the content will not be included in production build.**
 
-  **Corresponding CSS of the element  will actually leak to production build if not deleted or commented out**.
+  **Corresponding CSS of the element  will leak to production build if not deleted or commented out**.
