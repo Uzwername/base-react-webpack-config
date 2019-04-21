@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow, render } from "enzyme";
-import { Navigation } from "../../src/scripts/components/navigation";
+import { Navigation } from "IndexComponents/navigation";
 
 describe (`<Navigation />`, () => {
 

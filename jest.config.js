@@ -12,5 +12,12 @@ module.exports = {
     	"node_modules",
     	"src",
 	],
-  "preset": "jest-puppeteer"
+  "preset": "jest-puppeteer",
+  moduleNameMapper: {
+    "IndexScripts(.*)$": "<rootDir>src/index/scripts/$1",
+    "IndexComponents(.*)$": "<rootDir>src/index/scripts/components/$1",
+    "IndexContainers(.*)$": "<rootDir>src/index/scripts/containers/$1",
+    "IndexStyles(.*)$": "<rootDir>src/index/styles/$1",
+    "Images(.*)$": "<rootDir>assets/images$1"
+  }
 };

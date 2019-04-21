@@ -1,11 +1,13 @@
 const fs = require("fs");
 const path = require("path");
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const CleanWebpackPlugin = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const WriteFilePlugin = require("write-file-webpack-plugin");
 const styleLintPlugin = require("stylelint-webpack-plugin");
 const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
+const imagemin = require('imagemin');
+const imageminWebp = require('imagemin-webp');
 
 //Returns full name of a first file in a given folder.
 const returnFirstFile = folderPath => 
@@ -17,14 +19,31 @@ const returnFirstFile = folderPath =>
 const faviconPath = "./assets/favicon/" +
                     returnFirstFile("./assets/favicon/");
 
+imagemin(["assets/images/common/*.{jpg,png}"], "assets/images/webp", {
+    use: [
+        imageminWebp({quality: 50})
+    ]
+}).then(() => {
+    console.log("Images optimized");
+});
+
 module.exports = {
     entry: {
-        main: "./src/scripts/index.js"
+        main: `./src/index/scripts/index.js`
     },
 	output: {
-		filename: "main.js",
-		path: path.resolve(__dirname, "dist")
+		filename: `main.js`,
+		path: path.resolve(__dirname, `dist`)
 	},
+    resolve: {
+        alias: {
+            IndexScripts: path.resolve(__dirname, `src/index/scripts`),
+            IndexComponents: path.resolve(__dirname, `src/index/scripts/components`),
+            IndexContainers: path.resolve(__dirname, `src/index/scripts/containers`),
+            IndexStyles: path.resolve(__dirname, `src/index/styles`),
+            Images: path.resolve(__dirname, `assets/images`)
+        }
+    },
     devtool: "source-map",
     module: {
         rules: [
@@ -79,7 +98,7 @@ module.exports = {
                 ]
             },
             {
-                test: /\.(jpg|png|svg|jpeg|gif)$/,
+                test: /\.(jpg|png|svg|jpeg|gif|webp)$/,
                 include: [
                     path.resolve(__dirname, "assets")
                 ],
@@ -88,6 +107,20 @@ module.exports = {
                     {
                         loader: "image-webpack-loader",
                         options: {
+                            mozjpeg: {
+                                progressive: true,
+                                quality: 65
+                            },
+                            optipng: {
+                                enabled: false,
+                            },
+                            pngquant: {
+                                quality: "65-90",
+                                speed: 4
+                            },
+                            gifsicle: {
+                                interlaced: false,
+                            },
                             webp: {
                                 quality: 75
                             }
