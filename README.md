@@ -11,7 +11,7 @@ This base is intended to be as homogeneous as possible for any project, yet, the
   - Set-up includes ".gitignore" file but one should run `git init` in order to create at least empty .git. Without .git ESLint might not work, because, for an unknown reason, it wants .git or similar to be here.
 
 + package.json
-  - You obviously need to run `npm install`. Preferably, before that, to also might run `ncu` if you have corresponding package installed globally.
+  - You obviously need to run `npm install`. It's advisable to run `ncu` or similar before that in order to ensure that your new project will be build on the basis of the latest packages.
   - "homepage"
   - "author"
   - "name"
