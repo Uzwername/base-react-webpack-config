@@ -1,13 +1,13 @@
 const fs = require("fs");
 const path = require("path");
-const CleanWebpackPlugin = require("clean-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const WriteFilePlugin = require("write-file-webpack-plugin");
 const styleLintPlugin = require("stylelint-webpack-plugin");
 const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
-const imagemin = require('imagemin');
-const imageminWebp = require('imagemin-webp');
+const imagemin = require("imagemin");
+const imageminWebp = require("imagemin-webp");
 
 //Returns full name of a first file in a given folder.
 const returnFirstFile = folderPath => 
@@ -53,18 +53,13 @@ module.exports = {
                     { //Enables class/id minimization & CSS modules
                         loader: "css-loader",
                         options: {
-                            modules: true,
-                            localIdentName: "[sha1:hash:hex:4]"
+                            importLoaders: 2,
+                            modules: {
+                                localIdentName: "[sha1:hash:hex:4]"
+                            }
                         }
                     },
-                    {
-                        loader: "postcss-loader",
-                        options: {
-                            plugins: () => [require("autoprefixer")({
-                                "browsers": ["cover 99.5% in ES"]
-                            })],
-                        }
-                    },
+                    "postcss-loader",
                     "sass-loader" // compiles Sass to CSS, using Node Sass by default
                 ]
             },
@@ -89,6 +84,8 @@ module.exports = {
                     {
                         loader: "eslint-loader",
                         options: {
+                            //Corrects the path to formatter (https://github.com/eslint/eslint/issues/11910)
+                            formatter: require(path.resolve(__dirname, `node_modules/eslint/lib/cli-engine/formatters/stylish`)),
                             //Prevents eslint from ruining a build on error.
                             emitWarning: true
                         }
