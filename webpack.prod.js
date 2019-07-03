@@ -1,25 +1,19 @@
-const merge = require('webpack-merge');
-const common = require('./webpack.common.js');
+const merge = require("webpack-merge");
+const common = require("./webpack.common.js");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 
 module.exports = merge(common, {
     mode: "production",
     //Used primarily to delete comments from prod build
     optimization: {
-        minimizer: [ 
+        minimizer: [
             new UglifyJsPlugin({
                 uglifyOptions: {
                     output: {
                         comments: false
                     },
-                    compress: {
-                        // remove warnings
-                        warnings: false,
-
-                        // Drop console statements
-                        drop_console: true
-                    }
+                    warnings: false
                 }
             })
         ]
