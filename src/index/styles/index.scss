@@ -8,7 +8,7 @@
 }
 
 //body > div === :global(#app);
-html, body, body > div, :global(#jsDisabled) {
+html, body, body > div > div, :global(#jsDisabled), noscript {
 	@extend %fullSizeNoSpace;
 }
 
@@ -29,7 +29,10 @@ just above if error box is not needed
 }
 
 :global(#jsDisabled) {
+
 	@extend %centeredFlex;
+	height: 100vh;
+	width: 100vw;
 
 	:global(.jsd_infoBox) {
 		background-color: #CCD6DC;
