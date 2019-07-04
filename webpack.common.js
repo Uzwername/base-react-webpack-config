@@ -98,7 +98,12 @@ module.exports = {
                     path.resolve(__dirname, "assets")
                 ],
                 use: [
-                    "file-loader",
+                    {
+                        loader: "file-loader",
+                        options: {
+                            name: "[sha1:hash:hex:4].[ext]",
+                        }
+                    },
                     {
                         loader: "image-webpack-loader",
                         options: {
