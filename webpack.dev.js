@@ -12,7 +12,7 @@ module.exports = merge(common, {
         contentBase: path.join(__dirname, "dist")
     },
     plugins:[
-    	new HtmlWebpackPlugin({
+        new HtmlWebpackPlugin({
             "meta": {
                 "charset": {
                     "charset": "utf-8"
