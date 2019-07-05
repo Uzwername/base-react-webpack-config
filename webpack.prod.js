@@ -19,7 +19,7 @@ module.exports = merge(common, {
         ]
     },
     plugins:[
-    	new HtmlWebpackPlugin({
+        new HtmlWebpackPlugin({
             "meta": {
                 "charset": {
                     "charset": "utf-8"

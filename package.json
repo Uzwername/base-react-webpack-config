@@ -6,7 +6,7 @@
   "browserslist": "cover 99.5% in ES",
   "scripts": {
     "dev": "cross-env webpack-dev-server --config webpack.dev.js",
-    "test": "cross-env jest --watch",
+    "test": "cross-env npx jest --watch",
     "build": "cross-env webpack --config webpack.prod.js",
     "profile": "cross-env webpack --profile --config=\"webpack.prod.js\" --json > buildStats/webpack-stats.json"
   },

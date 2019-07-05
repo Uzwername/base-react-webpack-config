@@ -8,7 +8,7 @@
 }
 
 //body > div === :global(#app);
-html, body, body > div, :global(#jsDisabled) {
+html, body, body > div > div, :global(#jsDisabled), noscript {
 	@extend %fullSizeNoSpace;
 }
 
@@ -29,24 +29,35 @@ just above if error box is not needed
 }
 
 :global(#jsDisabled) {
+
 	@extend %centeredFlex;
 
+	height: 500px;
+	width: 100%;
+	height: 100vh;
+	width: 100vw;
+
 	:global(.jsd_infoBox) {
+
 		background-color: #CCD6DC;
 		border-radius: 25px;
 		@extend %centeredFlex;
 		flex-wrap: wrap;
 
 		:global(.jsd_icon) {
+
 			@extend %inlineBlock;
 			font-size: 500%;
 			margin: 0;
 			top: 50%;
+
 		}
 
 		:global(.jsd_textWrapper) {
+
 			@extend %inlineBlock;
 			max-width: 250px;
+
 		}
 	}
 }
