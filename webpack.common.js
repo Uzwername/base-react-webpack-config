@@ -64,35 +64,6 @@ module.exports = {
                 ]
             },
             {
-                test: /\.(js|jsx)$/,
-                exclude: /node_modules/,
-                use: [
-                    {
-                        loader: "babel-loader",
-                        options: {
-                            presets: [
-                                [ //Uses polyfills
-                                    "@babel/preset-env",
-                                    {
-                                        useBuiltIns: "usage",
-                                        "corejs": "core-js@3"
-                                    }
-                                ]
-                            ]
-                        }
-                    },
-                    {
-                        loader: "eslint-loader",
-                        options: {
-                            //Corrects the path to formatter (https://github.com/eslint/eslint/issues/11910)
-                            formatter: require(path.resolve(__dirname, `node_modules/eslint/lib/cli-engine/formatters/stylish`)),
-                            //Prevents eslint from ruining a build on error.
-                            emitWarning: true
-                        }
-                    }
-                ]
-            },
-            {
                 test: /\.(jpg|png|svg|jpeg|gif|webp)$/,
                 include: [
                     path.resolve(__dirname, "assets")
@@ -170,5 +141,5 @@ module.exports = {
             quiet: false,
             emitErrors: false
         })
-    ]
+    ],
 };
