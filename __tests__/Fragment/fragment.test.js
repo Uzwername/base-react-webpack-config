@@ -6,8 +6,8 @@ describe (`Component <A /> & component <B /> interaction`, () => {
 
 	test(`A test that shows that <A /> &
 		<B /> play well together`, () => {
-		
-		//expect
+
+		expect(0).not.toEqual(1);
 	
 	});
 
