@@ -4,13 +4,12 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const WriteFilePlugin = require("write-file-webpack-plugin");
-const styleLintPlugin = require("stylelint-webpack-plugin");
 const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
 const imagemin = require("imagemin");
 const imageminWebp = require("imagemin-webp");
 
 //Returns full name of a first file in a given folder.
-const returnFirstFile = folderPath => 
+const returnFirstFile = folderPath =>
     fs.readdirSync(folderPath)
         .filter(item => !(/(^|\/)\.[^\/\.]/g)
         .test(item))[0];
@@ -108,7 +107,7 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: "style.css"
         }),
-        
+
         new OptimizeCSSAssetsPlugin({
             assetNameRegExp: /\.css$/
         }),
@@ -132,14 +131,5 @@ module.exports = {
             }
         }),
 
-        new styleLintPlugin({
-            configFile: "stylelint.config.js",
-            syntax: "scss",
-            context: "src",
-            files: "**/*.scss",
-            failOnError: false,
-            quiet: false,
-            emitErrors: false
-        })
     ],
 };

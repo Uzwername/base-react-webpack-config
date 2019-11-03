@@ -5,11 +5,11 @@ import styles from "IndexStyles/mainContent.scss";
 
 export const MainContent = () => {
 	return (
-		<div>
+		<main>
 			<picture>
 				<source className={styles.waveImg} srcSet={waveImgWebP} type="image/webp" />
 				<img className={styles.waveImg} src={waveImgJpg} alt="beatiful wave" title="beatiful wave" />
 			</picture>
-		</div>
+		</main>
 	);
 };

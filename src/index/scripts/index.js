@@ -27,7 +27,7 @@ getSite(`https://services.arcgis.com/hkQNLKNeDVYBjvFE/arcgis/rest/services/BIC/F
 let map = new Map([
 	[`1`,`2`],
 	[`3`,`4`]
-]);
+])
 
 console.log( map );
 

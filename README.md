@@ -8,7 +8,7 @@ This base is intended to be as homogeneous as possible for any project, yet, the
 
 + Git Setup
 
-  - Set-up includes ".gitignore" file, if you clone the repo from github, there's no need to do anything additional. Othervise, one should run `git init` in order to create an empty .git. Without .git ESLint might not work, because, for an unknown reason, it wants .git or similar to be here.
+  - Set-up includes ".gitignore" file, if you clone the repo from GitHub, there's no need to do anything additional. Otherwise, one should run `git init` in order to create an empty .git. Without .git ESLint might not work, because, for an unknown reason, it wants .git or similar to be here.
 
 + package.json
   - You obviously need to run `npm install`. It's advisable to run `ncu` or similar before that in order to ensure that your new project will be build on the basis of the latest packages.
@@ -28,19 +28,15 @@ This base is intended to be as homogeneous as possible for any project, yet, the
   - title property in webpack.common.js plugins -> FaviconsWebpackPlugin
 
 # Known issues
-There are 2 warnings that appear on each compile one from Stylelint & another one from eslint-plugin-react.
+The default favicon is not well-optimised and might, show a warning on compile which is ok since it is used only for demonstration.
 
-According to corresponding repos, both are insignificant & will be fixed soon.
+Initially one test in E2E fails & ESLint shows 1 warning on compile which is left as-is for guidance & demonstration.
 
-Also the default favicon is not well-optimized and hence, shows a warning on compile which is assumed to be ok since it most probably be replaced (or well, optimized).
-
-Also, initially one or more (depending on environment) test in E2E fail & ESLint shows 2 warnings on compile which is left as-is for guidance & demonstration.
-
-Warnings about unknown attribute :global() in scss are preserved in order to show that CSS modules are used & remind that :global() is not actually a cool thing to use. In the particular case of index.scss they were used as a workaround.
+Warnings about unknown attribute :global() in .scss files are preserved in order to demonstrate the usage of CSS modules & its specific selectors.
 
 # Additional Info
 
-### It is reccomendable to run `npm run dev` & `npm run test` in parallel since it will play nice together with E2E testing.
+### It is recommended to run `npm run dev` & `npm run test` in parallel since it will play nice together with E2E testing.
 
 ### In src -> index -> markup -> index_template.dev.html there might be found content inside the `<div id="app">`.
 
@@ -48,6 +44,6 @@ Warnings about unknown attribute :global() in scss are preserved in order to sho
 
   In order to prevent this situation, this additional HTML content is added. It will be displayed in such a situations and automatically deleted by React otherwise.
 
-  However, since it is not needed in 100% of cases (for instance, there's no such a probability if you develop a Chrome plug-in), it is left only in dev version of the HTML template. The production version doesn't contain it by default. So, one should customize this content as needed **and then copy the content to index_template.prod.html** if necessary. **Otherwise, the content will not be included in production build.**
+  However, since it is not needed in 100% of cases (for instance, there's no such a probability if you develop a Chrome plug-in), it is left only in dev version of the HTML template. The production version doesn't contain it by default. So, one should customise this content as needed **and then copy the content to index_template.prod.html** if necessary. **Otherwise, the content will not be included in production build.**
 
   **Corresponding CSS of the element  will leak to production build if not deleted or commented out**.

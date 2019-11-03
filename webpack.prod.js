@@ -20,15 +20,20 @@ module.exports = merge(common, {
                                     "@babel/preset-env",
                                     {
                                         useBuiltIns: "usage",
-                                        "corejs": "core-js@3"
+                                        corejs: {
+                                          // Forces usage of last version
+                                          version: 3,
+                                          // Enables polyfills for proposals
+                                          proposals: true,
+                                        },
                                     }
                                 ]
                             ],
                             configFile: path.resolve(
                                 path.resolve(
                                     __dirname,
-                                    `babel.config.prod.js`
-                                )
+                                    `babel.config.prod.js`,
+                                ),
                             ),
                         }
                     },

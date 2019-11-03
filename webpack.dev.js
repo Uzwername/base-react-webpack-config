@@ -2,6 +2,7 @@ const merge = require("webpack-merge");
 const common = require("./webpack.common.js");
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const StylelintPlugin = require("stylelint-webpack-plugin");
 
 module.exports = merge(common, {
     mode: "development",
@@ -50,7 +51,8 @@ module.exports = merge(common, {
             },
         ]
     },
-    plugins:[
+    plugins: [
+
         new HtmlWebpackPlugin({
             "meta": {
                 "charset": {
@@ -59,6 +61,19 @@ module.exports = merge(common, {
                 "viewport": "width=device-width, initial-scale=1, shrink-to-fit=no"
             },
             template: "src/index/markup/index_template.dev.html"
-        })
+        }),
+
+        new StylelintPlugin({
+            configFile: "stylelint.config.js",
+            syntax: "scss",
+            context: "src",
+            files: "**/*.scss",
+            failOnError: false,
+            quiet: false,
+            emitErrors: false,
+            emitWarning: true,
+        }),
+
     ]
+
 });

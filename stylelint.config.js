@@ -1,12 +1,12 @@
 module.exports = {
     extends: "stylelint-config-recommended",
-    plugins: ["stylelint-scss"],
+    plugins: [ "stylelint-scss", ],
     rules: {
         "at-rule-no-unknown": null,
         "scss/at-rule-no-unknown": true,
         "selector-pseudo-class-no-unknown": [
             true,
-            //{ "ignorePseudoClasses": ["global", "local"] }
+            // { "ignorePseudoClasses": [ "global", "local" ] }
         ]
     }
 };
