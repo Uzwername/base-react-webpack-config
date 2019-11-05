@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Just a base environment 4 your new project.",
   "private": true,
-  "browserslist": "cover 99.5% in ES",
+  "browserslist": "last 1 version, not dead, > 0.2%",
   "scripts": {
     "dev": "cross-env webpack-dev-server --config webpack.dev.js",
     "test": "cross-env npx jest --env=jsdom --watch",
