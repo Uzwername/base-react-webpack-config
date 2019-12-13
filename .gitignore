@@ -3,3 +3,4 @@ node_modules/
 buildStats/
 coverage/
 dist/
+package-lock.json
