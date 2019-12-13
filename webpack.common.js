@@ -18,11 +18,12 @@ const returnFirstFile = folderPath =>
 const faviconPath = "./assets/favicon/" +
                     returnFirstFile("./assets/favicon/");
 
-imagemin(["assets/images/common/*.{jpg,png}"], "assets/images/webp", {
-    use: [
-        imageminWebp({quality: 50})
-    ]
-}).catch( err => console.log(`Image optimization failed due to: ${err}`) );
+(async () => {
+  const files = await imagemin(["./assets/images/common/*.{jpg,png}"], {
+    destination: "./assets/images/webp",
+    plugins: [imageminWebp({quality: 50})],
+  });
+})();
 
 module.exports = {
     entry: {
