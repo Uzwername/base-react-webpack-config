@@ -1,4 +1,4 @@
-# React + Webpack base setup (Client side rendering)
+# [Not maintained] React + Webpack base setup (Client side rendering)
 
 This is just a base config of the development environment. It is intended to be used for building React projects that use webpack as the build tool.
 
